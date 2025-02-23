@@ -21,6 +21,7 @@ Primitives:
 
 ^{...} Exponentiation
 * {...} specifies the power
+* Ex. 2^{2} = 4
 
 ## Commands:
 
