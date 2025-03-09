@@ -3,7 +3,9 @@
 
 bool is_double(std::string str) {
     bool has_decimal = false;
-    
+    if (str[0] == '-') {
+        str = str.substr(1);
+    }
     for (size_t i = 0; i < str.length(); i++) {
         if (str[i] == '.') { 
             if (has_decimal) {

@@ -1,0 +1,11 @@
+# Ignore the .vscode directory
+.vscode/
+
+# Ignore compiled files
+*.o
+*.a
+
+# Ignore macOS system files
+.DS_Store
+Makefile.macOS
+Makefile.windows

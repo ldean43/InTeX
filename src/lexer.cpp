@@ -116,12 +116,6 @@ void Lexer::lexHelper() {
         /* command will typically be followed by a symbol, symbol logic
         immediately after operator_ logic to optimize time */
         if (valid_syms_.count(c_)) {
-            if (c_ == '-') {
-                if (tokens_.empty() && !is_double(tokens_.back()) &&
-                    !is_var(tokens_.back())) {
-                    tokens_.push_back("0");
-                }
-            }
             tokens_.push_back(std::string(1, c_));
             advance();
             continue;
@@ -149,6 +143,19 @@ void Lexer::lexHelper() {
                 // Append digit to number
                 number += c_;
                 advance();
+            }
+            // handle negative numbers
+            if (!tokens_.empty() && tokens_.back() == "-") {
+                tokens_.pop_back();
+                number = "-" + number;
+                std::string prev;
+                if (!tokens_.empty()) {
+                    prev = tokens_.back();
+                    if (prev == ")" || prev == "}" || prev == "]" || prev == "right|" ||
+                        is_double(prev) || is_var(prev)) {
+                        tokens_.push_back("+");
+                    }
+                }
             }
             tokens_.push_back(number);
         }
