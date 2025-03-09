@@ -1,8 +1,0 @@
-# Ignore the .vscode directory
-.vscode/
-.build/
-
-# Ignore macOS system files
-.DS_Store
-Makefile.macOS
-Makefile.windows
