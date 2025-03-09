@@ -1,9 +1,6 @@
 # Ignore the .vscode directory
 .vscode/
-
-# Ignore compiled files
-*.o
-*.a
+.build/
 
 # Ignore macOS system files
 .DS_Store
