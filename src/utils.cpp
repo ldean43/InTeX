@@ -6,6 +6,9 @@ bool is_double(std::string str) {
     if (str[0] == '-') {
         str = str.substr(1);
     }
+    if (str.length() == 0) {
+        return false;
+    }
     for (size_t i = 0; i < str.length(); i++) {
         if (str[i] == '.') { 
             if (has_decimal) {

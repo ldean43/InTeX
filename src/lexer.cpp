@@ -158,6 +158,8 @@ void Lexer::lexHelper() {
                 }
             }
             tokens_.push_back(number);
+        } else {
+            throw std::runtime_error("lexing error: invalid token");
         }
     }
     return;
