@@ -10,6 +10,11 @@ int main() {
     std::vector<std::string> tokens;
     std::smatch match;
     std::unordered_map<std::string, double> vars;
+    
+    #ifdef _WIN32
+    // Set the console to use UTF-8 encoding on Windows
+    system("chcp 65001");
+    #endif
 
     std::cout << "\"quit\" or \"exit\" to exit repl" << std::endl;
     while (true) {
